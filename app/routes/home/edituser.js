@@ -9,7 +9,7 @@ export default Ember.Route.extend({
            $(function(){
                storeData.updateUserDetails(function(msg){
                    if(msg ==='success'){
-                       self.transitionTo('home.index',userDetails);
+                       self.transitionTo('home.home',userDetails);
                     }
                 });
             });

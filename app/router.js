@@ -11,7 +11,7 @@ Router.map(function() {
   });
   this.route('home', function(){
     this.route('home');
-    this.route('home',{path:'/username'});
+    this.route('home',{path:'/:home_username'});
     this.route('edituser',{path:'/edituser'});
   });
   this.route('signin');

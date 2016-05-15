@@ -10,7 +10,9 @@ export default Ember.Route.extend({
                     getuser.verifyUser(userDetails,function(msg){
                         if(msg ==='success'){
                             getuser.getUserDetails(function(msg){
-                                if(msg ==='success'){self.transitionTo('home.home',userDetails);}
+                                if(msg ==='success'){
+                                    self.transitionTo('home.home',userDetails);
+                                }
                             });
                         }
                     });

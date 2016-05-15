@@ -1,34 +1,44 @@
 <link rel="stylesheet" href="assets/vendor.css">
-<link rel="stylesheet" href="assets/picclic.css">
+<link rel="stylesheet" href="assets/gallary.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="pen-title">
-     <h1>Welcome To My First Ember {{model.username}}</h1>
-     {{#link-to "home.edituser"}}
-     <div id="edituser" class="fa edituser fontbuttons tooltip">
-         <span class="tooltiptext">edit profile</span>
-     </div>
-     {{/link-to}}
-     {{#link-to "signin"}}
-     <div id="signout" class="fa signout fontbuttons tooltip">
-         <span class="tooltiptext">signout</span>
-     </div>
-     {{/link-to}}
-</div>
-<br>
-<div class="container" >
-    <div class="card"></div>
-    <div class="card">
-        <div class="title">Do Stuff Here</div>
+<body class="">
+    <div id="main">
+        <header id="header">
+            <h1>Welcome {{model.username}}</h1>
+            {{#link-to "home.edituser"}}
+            <div id="edituser" class="fa edituser fontbuttons tooltip">
+                <span class="tooltiptext">edit profile</span>
+            </div>
+            {{/link-to}}
+            {{#link-to "signin"}}
+            <div id="signout" class="fa signout fontbuttons tooltip">
+                <span class="tooltiptext">signout</span>
+            </div>
+            {{/link-to}}
+        </header>
+        <footer id="footer">
+            <span>Gallery 
+                    <i class="fa fa-code"></i>
+                    by 
+                    <a href="https://nl.linkedin.com/in/laurent-greyling-90164963">Laurent
+                    </a>
+                </span>        
+        </footer>
+        <div class="toggle" onclick="$('body').addClass('fullscreen')"></div>
     </div>
-</div>
 
-<div class="pen-title">
-    <span>Picclic 
-            <i class="fa fa-code"></i>
-             by 
-             <a href="https://nl.linkedin.com/in/laurent-greyling-90164963">Laurent
-             </a>
-        </span>        
-</div>
+        
+        <div id="viewer">
+        <div class="inner">
+            <div class="toggle" onclick="$('body').removeClass('fullscreen')"></div>
+        </div>
+        <div class="slide active">
+            <div class="image">
+                <img src="assets/images/placeholder/haarlem.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
 {{outlet}}

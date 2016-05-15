@@ -2,53 +2,61 @@
 <link rel="stylesheet" href="assets/gallery.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div class="pen-title">
-<h1>Welcome To My First Ember {{model.username}}</h1>
-</div>
+<body class="">
+    <div id="main">
+        <header id="header">
+            <h1>Edit {{model.username}}'s Profile</h1>
+        </header>
+        <div class="extrapadding">
+        <form {{action "updateUser" model on="submit"}}>
+                    {{input type="text" id="NewName" value=model.name}}
+                    <label for="NewName">Your New Name</label>
+                    
+                    {{input type="text" id="NewSurName" value=model.surname}}
+                    <label for="NewSurName">Your New Surname</label>
+                    
+                {{#if (userExist model.userExist)}}
+                    <div class="warning">
+                    <i class="fa warningText"/> User already exists
+                    </div>
+                {{/if}}
+                    {{input type="text" id="NewUserName" required=true value=model.username}}
+                    <label for="NewUserName">Your New User Name</label>
+                    
+                    {{input type="email" id="NewEmail" value=model.email}}
+                    <label for="NewEmail">Your New Email</label> 
+            
+                <button type="submit" id="UpdateUser"><span>Update</span></button>
+                {{#link-to "home.home" model.username}}<button id="BackToHome"><span>Home</span></button>{{/link-to}}
+        </form>
+        </div>
+        <footer id="footer">
+            <span>Gallery 
+                    <i class="fa fa-code"></i>
+                    by 
+                    <a href="https://nl.linkedin.com/in/laurent-greyling-90164963">Laurent
+                    </a>
+                </span>        
+        </footer>
+        <div class="toggle" onclick="$('body').addClass('fullscreen')"></div>
+    </div>
+    <div id="viewer">
+        <div class="inner">
+            <div class="toggle" onclick="$('body').removeClass('fullscreen')"></div>
+        </div>
+        <div class="slide active">
+            <div class="image">
+                <img src="assets/images/placeholder/haarlem.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
 
 <div class="container">
     <div class="card"></div>
     <div class="card">
-        <form {{action "updateUser" model on="submit"}}>
-            <h1 class="title">Edit User</h1>
-            <div class="input-container">
-                    {{input type="text" id="NewName" value=model.name}}
-                    <label for="NewName">Your New Name</label>
-                    <div class="bar"></div>
-                <br>
-            </div>
-            <div class="input-container">
-                    {{input type="text" id="NewSurName" value=model.surname}}
-                    <label for="NewSurName">Your New Surname</label>
-                    <div class="bar"></div>
-                <br>
-            </div>
-                {{#if (userExist model.userExist)}}
-                    <div class="warning">
-                    <i class="fa warningText"/>
-                        <label>User already exists...</label><br>
-                    </div>
-                {{/if}}
-            <div class="input-container">
-                    {{input type="text" id="NewUserName" required=true value=model.username}}
-                    <label for="NewUserName">Your New User Name</label>
-                    <div class="bar"></div>
-                <br>
-            </div>
-            <div class="input-container">
-                    {{input type="email" id="NewEmail" value=model.email}}
-                    <label for="NewEmail">Your New Email</label>
-                    <div class="bar"></div>
-                <br>
-            </div>  
-            
-            <div class="button-container">
-                <button type="submit" id="UpdateUser"><span>Update</span></button>
-            </div>
-            <div class="card alt">
-                {{#link-to "home.home" model.username}}<div id="BackToHome" class="back toggle"></div>{{/link-to}}
-            </div>
-        </form>
+        
     </div>
 </div>
 

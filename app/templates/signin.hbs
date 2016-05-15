@@ -3,54 +3,53 @@
 <link rel="stylesheet" href="assets/gallery.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-
-    <div class="pen-title">
-        <h1>Welcome To My First Ember</h1>        
+<body class="">
+    <div id="main">
+        <header id="header">
+            <h1>Gallery</h1>        
+        </header>
+                <form {{action "getUser" model on="submit"}}>
+                    <h1 class="title">Login</h1>
+                    {{#if (unverified model.unverified)}}
+                    <div class="warning">
+                        <i class="fa warningText"/> Incorrect user name or password
+                    </div>
+                    {{/if}}
+                    
+                    <div class="extrapadding">
+                        {{input type="text" id="UserName" required=true value=model.username}}
+                    </div>
+                        <label class="userlabels">Username</label>
+                    <div class="extrapadding"> 
+                        {{input type="password" id="password" required=true value=model.password}}
+                    </div>
+                        <label class="userlabels">Password</label>
+                    
+                    <div class="extrapadding">
+                       <button type="submit" id="signIn"><span>Go</span></button>
+                       {{#link-to "signup.signup-page"}}<button id="signUp"><span>Register</span></button>{{/link-to}}                     
+                    </div>
+                </form>
+        <footer id="footer">
+            <span>Gallery 
+                    <i class="fa fa-code"></i>
+                    by 
+                    <a href="https://nl.linkedin.com/in/laurent-greyling-90164963">Laurent
+                    </a>
+                </span>        
+        </footer>
+        <div class="toggle" onclick="$('body').addClass('fullscreen')"></div>
     </div>
-    <br>
-    <div class="container">
-        <div class="card"></div>
-        <div class="card">
-            <form {{action "getUser" model on="submit"}}>
-                <h1 class="title">Login</h1>
-                {{#if (unverified model.unverified)}}
-                <div class="warning">
-                    <i class="fa warningText"/>
-                    <label>Incorrect user name or password</label><br>
-                </div>
-                {{/if}}
-                <div class="input-container">
-                    {{input type="text" id="UserName" required=true value=model.username}}
-                    <label for="UserName">Username</label>
-                    <div class="bar"></div>
-                <br>
-                </div>
-                <div class="input-container">
-                    {{input type="password" id="password" required=true value=model.password}}
-                    <label for="password">Password</label>
-                    <div class="bar"></div>
-                <br>    
-                </div>
-                
-                <div class="button-container">
-                    <!--<input type="submit" id="signIn" value="SignIn" class="button-container"/>-->
-                    <button type="submit" id="signIn"><span>Go</span></button>                    
-                </div>
-                <div class="card alt">
-                        {{#link-to "signup.signup-page"}}<div id="signUp" class="toggle"></div>{{/link-to}}                  
-                </div>
-            </form>
+    <div id="viewer">
+        <div class="inner">
+            <div class="toggle" onclick="$('body').removeClass('fullscreen')"></div>
         </div>
-        
-    </div>    
-
-<div class="pen-title">
-    <span>Picclic 
-            <i class="fa fa-code"></i>
-             by 
-             <a href="https://nl.linkedin.com/in/laurent-greyling-90164963">Laurent
-             </a>
-        </span>        
-</div>
-
+        <div class="slide active">
+            <div class="image">
+                <img src="assets/images/placeholder/haarlem.jpg">
+            </div>
+        </div>
+    </div>
+</body>
 {{outlet}}
+
