@@ -17,6 +17,20 @@
             </div>
             {{/link-to}}
         </header>
+        
+        <section id="thumbnails">
+            <article tabindex="-1" class="">
+                <a class="thumbnail" href="assets/images/placeholder/haarlem.jpg" data-position="left center">
+                    <img src="assets/images/thumbs/haarlemthumb.jpg" alt="">
+                </a>                
+            </article>
+            <article tabindex="-1" class="">
+                <a class="thumbnail" href="assets/images/placeholder/amsterdam.jpg" data-position="left center">
+                    <img src="assets/images/thumbs/amsterdamthumb.jpg" alt="">
+                </a>                
+            </article>
+        </section>
+        
         <footer id="footer">
             <span>Gallery 
                     <i class="fa fa-code"></i>
@@ -31,9 +45,17 @@
         
         <div id="viewer">
         <div class="inner">
+            <div class="nav-next"></div>
+            <div class="nav-previous"></div>
             <div class="toggle" onclick="$('body').removeClass('fullscreen')"></div>
         </div>
         <div class="slide active">
+            <div class="caption">
+                <h2>Christmas Market Haarlem</h2>
+                <p>The Christmas markets in the Netherlands offer a variety of goods for sale. One such Market
+                    is the christmas market of 2015 in Haarlem. A small town situated around 18km west from Amsterdam.
+                </p>
+            </div>
             <div class="image">
                 <img src="assets/images/placeholder/haarlem.jpg">
             </div>
