@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="assets/vendor.css">
+<link rel="stylesheet" href="assets/gallery.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="pen-title">
+        <h1>Welcome To My First Ember</h1>
+        
+        <h3>Please give the following details so we can create your awesome account</h3>        
+    </div>
+<br>
+
+<div class="container">
+    <div class="card"></div>
+    <div class="card">
+        <form {{action "newUser" model on="submit"}}>
+            <h1 class="title">Register</h1>
+            <div class="input-container">
+                    {{input type="text" id="SignUpName" value=model.name}}
+                    <label for="SignUpName">Name your mother gave you</label>
+                    <div class="bar"></div>
+                <br>
+            </div>
+            <div class="input-container">
+                    {{input type="text" id="SignUpSurName" value=model.surname}}
+                    <label for="SignUpSurName">Family Name</label>
+                    <div class="bar"></div>
+                <br>
+            </div>
+                {{#if (userExist model.userExist)}}
+                    <div class="warning">
+                    <i class="fa warningText"/>
+                        <label>User already exists</label><br>
+                    </div>
+                {{/if}}  
+            <div class="input-container">
+                    {{input type="text" id="SignUpUserName" required=true value=model.username}}
+                    <label for="SignUpUserName">Your dream name</label>
+                    <div class="bar"></div>
+                <br>
+            </div>
+            <div class="input-container">
+                    {{input type="email" id="SignUpEmail" value=model.email}}
+                    <label for="SignUpEmail">Your super awesome email</label>
+                    <div class="bar"></div>
+                <br>
+            </div>  
+             {{#if (removePatch model.password)}}
+                <div class="warning">
+                    {{#if (checkPswLenght model.password)}}
+                        <i class="fa warningText6Plus tooltip">
+                            <span class="tooltiptext">6+ characters</span>
+                        </i>
+                    {{/if}}
+                    {{#if (checkPswUppercase model.password)}}
+                        <i class="fa warningTextUperLower tooltip">
+                            <span class="tooltiptext">upper/lowercase</span>
+                        </i>
+                    {{/if}}
+                    {{#if (checkPswSpecialchar model.password)}}
+                        <i class="fa warningTextSpecial tooltip">
+                            <span class="tooltiptext">special character</span>
+                        </i>
+                    {{/if}}
+                    {{#if (checkPswNumericval model.password)}}
+                        <i class="fa warningTextNumber tooltip">
+                            <span class="tooltiptext">numeric value</span>
+                        </i>
+                    {{/if}}
+                </div>
+            {{/if}}
+            <div class="input-container">
+                    {{input type="password" id="SignUpPassword" required=true value=model.password}}
+                    <label for="SignUpPassword">Shhh its a secret password</label>
+                    <div class="bar"></div>
+                <br>
+            </div>
+            {{#if (confirmPassword model.password model.comparepassword)}}
+                <div class="warning">
+                    <i class="fa warningText"/>
+                    <label>Your secrets are not consistent</label>
+                    <br>
+                </div>
+            {{/if}}
+            <div class="input-container">
+                    {{input type="password" id="SignUpConfirmPassword" class=(if (confirmPassword model.password model.comparepassword) 'important') required=true value=model.comparepassword}}
+                    <label for="SignUpConfirmPassword">Confirm the secret password</label>
+                    <div class="bar"></div>
+                <br>
+            </div>
+            <div class="button-container">
+                <button type="submit" id="register"><span>Register</span></button>
+            </div>
+            <div class="card alt">
+                {{#link-to "signin"}}<div id="backToSignIn" class="back toggle"></div>{{/link-to}}
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="pen-title">
+<span>Picclic 
+            <i class="fa fa-code"></i>
+             by 
+             <a href="https://www.linkedin.com/in/laurent-greyling-90164963">Laurent
+             </a>
+        </span>
+</div>  
+ 
+
+{{log model}}
+{{outlet}}
+
+
+
+
