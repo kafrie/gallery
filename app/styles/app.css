@@ -74,11 +74,11 @@
 }
 
 .edituser.tooltip .tooltiptext {
-    margin: 0 0 0 -90px;
+    margin: -50px 0 0 -90px;
 }
 
 .signout.tooltip .tooltiptext {
-    margin: 0 0 0 -70px;
+    margin: -50px 0 0 -70px;
 }
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
